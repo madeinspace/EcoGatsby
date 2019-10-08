@@ -26,7 +26,7 @@
     "gatsby-source-filesystem": "^2.0.38",
     "gatsby-source-sql": "git+https://github.com/mrfunnyshoes/gatsby-source-sql.git",
     "gatsby-transformer-sharp": "^2.1.21",
-    "highcharts": "6.0.7",
+    "highcharts": "6.1.0",
     "id-icons": "git+https://github.com/smashmiek/id-icons.git",
     "jquery": "^3.4.1",
     "lodash": "^4.17.14",
