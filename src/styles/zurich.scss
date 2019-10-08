@@ -1,0 +1,78 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 2713265, 2013-12-23T18:42:16-0500
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: Zurich Light by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/zurich/light/
+ * Licensed pageviews: 110,000
+ *
+ * Webfont: Zurich by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/zurich/zurich/
+ * Licensed pageviews: 10,000
+ *
+ * Webfont: Zurich Bold by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/zurich/bold/
+ * Licensed pageviews: 10,000
+ *
+ * Webfont: Zurich Light Condensed by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/zurich/light-condensed/
+ * Licensed pageviews: 10,000
+ *
+ * Webfont: Zurich Condensed by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/zurich/condensed/
+ * Licensed pageviews: 110,000
+ *
+ *
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=2713265
+ * Webfonts copyright: Copyright 1990-2003 Bitstream Inc. All rights reserved.
+ *
+ * © 2013 MyFonts Inc
+*/
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/2966b1");
+
+
+// Zurich light
+@font-face {
+  font-family: 'Zurich'; // Used to be ZurichBT-Light
+  font-weight: 300;
+  src: url($zurich-font-path + '/2966B1_0_0.eot');
+  src: url($zurich-font-path + '/2966B1_0_0.eot?#iefix') format('embedded-opentype'), url($zurich-font-path + '/2966B1_0_0.woff') format('woff'), url($zurich-font-path + '/2966B1_0_0.ttf') format('truetype');
+}
+
+// Zurich roman
+@font-face {
+  font-family: 'Zurich'; // Used to be ZurichBT-Roman
+  font-weight: normal;
+  src: url($zurich-font-path + '/2966B1_1_0.eot');
+  src: url($zurich-font-path + '/2966B1_1_0.eot?#iefix') format('embedded-opentype'), url($zurich-font-path + '/2966B1_1_0.woff') format('woff'), url($zurich-font-path + '/2966B1_1_0.ttf') format('truetype');
+}
+
+// Zurich bold
+@font-face {
+  font-family: 'Zurich'; // Used to be ZurichBT-Bold
+  font-weight: bold;
+  src: url($zurich-font-path + '/2966B1_2_0.eot');
+  src: url($zurich-font-path + '/2966B1_2_0.eot?#iefix') format('embedded-opentype'), url($zurich-font-path + '/2966B1_2_0.woff') format('woff'), url($zurich-font-path + '/2966B1_2_0.ttf') format('truetype');
+}
+
+// Zurich light condensed
+@font-face {
+  font-family: 'Zurich Condensed'; // Used to be ZurichBT-LightCondensed
+  font-weight: 300;
+  src: url($zurich-font-path + '/2966B1_3_0.eot');
+  src: url($zurich-font-path + '/2966B1_3_0.eot?#iefix') format('embedded-opentype'), url($zurich-font-path + '/2966B1_3_0.woff') format('woff'), url($zurich-font-path + '/2966B1_3_0.ttf') format('truetype');
+}
+
+// Zurich roman condensed
+@font-face {
+  font-family: 'Zurich Condensed'; // Used to be ZurichBT-RomanCondensed
+  src: url($zurich-font-path + '/2966B1_4_0.eot');
+  src: url($zurich-font-path + '/2966B1_4_0.eot?#iefix') format('embedded-opentype'), url($zurich-font-path + '/2966B1_4_0.woff') format('woff'), url($zurich-font-path + '/2966B1_4_0.ttf') format('truetype');
+}

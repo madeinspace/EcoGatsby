@@ -1,0 +1,43 @@
+@import "./flexboxgrid.min.scss";
+@import "./layout.scss";
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./highcharts.scss";
+@import "./zurich.scss";
+@import "./id-icons.scss";
+
+body {
+  font-family: "Arial", "Zurich", sans-serif !important;
+  color: #000;
+  background-color: white;
+
+  &.noscroll {
+    position: fixed;
+    width: 100%;
+    overflow-y: scroll;
+  }
+}
+
+body,
+p {
+  color: #5f6062;
+  font-size: 14px;
+}
+
+p {
+  margin: 0 0 9px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+.hidden {
+  visibility: hidden;
+  display: none;
+}

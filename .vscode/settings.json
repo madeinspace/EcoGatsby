@@ -1,0 +1,10 @@
+{
+  "typescript.check.workspaceVersion": false,
+  "git.ignoreLimitWarning": true,
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#000",
+    "titleBar.inactiveForeground": "#000000CC",
+    "titleBar.activeBackground": "#70b859",
+    "titleBar.inactiveBackground": "#70b859"
+  }
+}

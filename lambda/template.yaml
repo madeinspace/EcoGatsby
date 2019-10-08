@@ -1,0 +1,77 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  workers-field-of-qualification
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 900
+
+Resources:
+  WorkersFieldOfQualificationFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: json-builder-lambda/
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+      MemorySize: 512
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambdaVPCAccessExecutionRole
+        - AWSLambdaENIManagementAccess
+        - Version: "2012-10-17" # Policy Document
+          Statement:
+            - Effect: Allow
+              Action:
+                - s3:PutObject
+                - s3:PutObjectACL
+              Resource: "arn:aws:s3:::roaring20s.economy.id.com.au-data/*"
+      Environment:
+        Variables:
+          DEFAULT_DATABASE_HOST:
+          DEFAULT_DATABASE_USER:
+          DEFAULT_DATABASE_PASS:
+          DEFAULT_DATABASE_NAME:
+          DATA_DATABASE_NAME:
+          COMMAPP_DATABASE_NAME:
+      # The Database is very likely to be inside of a VPC, so running the lambda inside the VPC
+      # may be necessary for the export to work
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0c28a851ca53d32ee
+        SubnetIds:
+          - subnet-024d65420215f8670
+          - subnet-0ffb00c5325626522
+          - subnet-0ea8e2437df2b3ed0
+  WorkersFieldOfQualificationAPIFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: api-lambda/
+      Handler: app.apiHandler
+      Runtime: nodejs10.x
+      Policies:
+        - AWSLambdaRole
+      Events:
+        WorkersFieldOfQualification:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /workers-field-of-qualification
+            Method: get
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  WorkersFieldOfQualificationApi:
+    Description: "API Gateway endpoint URL for Prod stage for Workers Field of Qualification function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/workers-field-of-qualification"
+  WorkersFieldOfQualificationFunction:
+    Description: "Workers Field of Qualification Lambda Function ARN"
+    Value: !GetAtt WorkersFieldOfQualificationFunction.Arn
+  WorkersFieldOfQualificationAPIFunction:
+    Description: "Workers Field of Qualification API Lambda Function ARN"
+    Value: !GetAtt WorkersFieldOfQualificationAPIFunction.Arn
+  WorkersFieldOfQualificationFunctionIamRole:
+    Description: "Implicit IAM Role created for Workers Field of Qualification function"
+    Value: !GetAtt WorkersFieldOfQualificationFunctionRole.Arn

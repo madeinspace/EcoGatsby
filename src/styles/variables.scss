@@ -1,0 +1,101 @@
+// Set the path to the fonts folder for the .id icon font
+$icomoon-font-path: "../fonts";
+
+//Border radius
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+// Colors
+
+$color-id: #ff4612;
+$color-primary: $color-id; // id orange
+
+// Product colours
+$color-atlas: #caae01;
+$color-profile: #cb2c30;
+$color-forecast: #3b6e8f;
+$color-economy: #70b859;
+$color-housing: #6acbdf;
+$color-health: #e63d66;
+$color-outlook: #00989a;
+
+$color-atlas-dark: #9a8700;
+$color-profile-dark: #a6093d;
+$color-forecast-dark: #002e5d;
+$color-economy-dark: #009a44;
+$color-housing-dark: #0092bc;
+$color-health-dark: #e63d66;
+$color-outlook-dark: #007274;
+
+// Census 2016 highlighters
+$color-census-2016: #01b700;
+$color-census-2016-lighter: #dffce8;
+$color-census-2016-light: #bef6cf;
+$color-census-2016-dark: #9adeaf;
+$color-census-2016-darker: #449a5e;
+
+$color-info-box: #00a8ff;
+
+// Lists of product names
+//
+// # Used to help theme the site
+$products: "profile", "atlas", "forecast", "economy", "outlook";
+$product_colours: $color-profile, $color-atlas, $color-forecast, $color-economy,
+  $color-outlook;
+$product_dark_colours: $color-profile-dark, $color-atlas-dark,
+  $color-forecast-dark, $color-economy-dark, $color-outlook-dark;
+
+//Grays
+$gray-darker: #222;
+$gray-dark: #333; // Headings
+$gray-mediumdark: #595959;
+$gray: #757575; // Body text
+$gray-sligtly-lighter: #a2a2a2;
+$gray-light: #bbb;
+$gray-lighter: #ddd; //Borders
+$gray-lightest: #f2f2f2; // Gray backgrounds
+
+// Bootstrap colours
+$brand-primary: $color-id;
+
+// Typography
+$zurich-font-path: "../fonts";
+$font-family-community: "Arial", sans-serif;
+$font-family-sans-serif: "Zurich", sans-serif;
+$font-family-condensed: "Zurich Condensed", $font-family-sans-serif;
+
+// Base font - override the overwhole font here
+$base-font: $font-family-community;
+$base-font-size: 14px;
+$base-font-color: $gray;
+
+$letter-spacing-wide: 0.02rem;
+
+$text-color: $gray;
+
+$link-color: $gray-dark;
+$link-decoration: underline;
+$link-hover-decoration: none;
+
+$headings-font-weight: bold;
+$headings-color: $gray-darker;
+$headings-letter-spacing: -0.05rem;
+
+$font-weight-light: 300;
+
+// Buttons
+$btn-secondary-color: $color-primary;
+$btn-secondary-bg: #fff !default;
+$btn-secondary-border: $color-primary !default;
+
+$spacer: $base-font-size;
+$spacer-sm: $spacer / 2;
+
+$btn-padding-x: $spacer;
+$btn-padding-y: $spacer / 2;
+
+// Layout
+$site-minimum-width: initial; // set it to 'initial' for full responsiveness
+$bodyWrapperPaddingBottom: 40px; // sets the offsets necessary for the topicsNav to be pushed up when hitting the botto
+$font-size-base: 12px;

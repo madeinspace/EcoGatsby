@@ -1,0 +1,720 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+$hover-color: #5f6062;
+$odd-color: #e6e6e6;
+$even-color: #f7f7f7;
+$even-row-color: $odd-color;
+
+.dataTableSource {
+  color: #6a6a6a;
+  position: relative;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 12px 6px;
+  border-top: 1px solid #d2cfcf;
+
+  a {
+    border-bottom: 1px solid #222;
+    text-decoration: none;
+    padding-bottom: 2px;
+    color: $link-color;
+    &:visited {
+      color: $link-color;
+    }
+  }
+  .source {
+    margin-bottom: 5px;
+    line-height: 17px;
+    font-size: 11px;
+  }
+
+  .tableFooterNotes {
+    font-size: 11px;
+  }
+}
+
+.smallNote {
+  color: #6a6a6a;
+  font-size: 12px;
+  line-height: 14px;
+  display: block;
+  span {
+    padding: 12px 6px;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.table-cross-links {
+  margin-top: 10px;
+
+  div.atlas {
+    background-color: $color-atlas-dark;
+    float: left;
+    margin-right: 4px;
+    margin-left: 5px;
+    padding: 1px;
+    font-size: 11px;
+    width: 19px;
+
+    &:after {
+      content: "a";
+      color: #fff;
+      padding: 5px;
+    }
+  }
+
+  div.forecast {
+    background-color: $color-forecast;
+    float: left;
+    margin-right: 4px;
+    margin-left: 5px;
+    padding: 1px;
+    font-size: 11px;
+    width: 19px;
+
+    &:after {
+      content: "f";
+      color: #fff;
+      padding: 5px;
+    }
+  }
+
+  div.economy {
+    background-color: $color-economy-dark;
+    float: left;
+    margin-right: 4px;
+    margin-left: 5px;
+    padding: 1px;
+    font-size: 11px;
+    width: 19px;
+
+    &:after {
+      content: "e";
+      color: #fff;
+      padding: 5px;
+    }
+  }
+}
+
+.table-actions {
+  position: absolute;
+  top: 14px;
+  right: 12px;
+
+  .table-reset {
+    display: inline-block;
+    bottom: 5px;
+    right: 10px;
+    padding: 0 0 0 5px;
+    border: none;
+    line-height: 25px;
+    cursor: pointer;
+    background-color: #dddddd;
+    display: inline-flex;
+
+    .icon-reset {
+      line-height: 25px;
+      width: 24px;
+      display: block;
+      float: right;
+      margin-left: 5px;
+      color: #fff;
+      @include theme {
+        background: nth($product_colours, $index);
+      }
+    }
+  }
+
+  .table-export {
+    display: inline-block;
+    bottom: 5px;
+    right: 10px;
+    padding: 0 0 0 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #dddddd;
+
+    .dropdown {
+      padding: 0;
+      border: none;
+      line-height: 25px;
+      font-size: 14px;
+      display: inline-flex;
+    }
+
+    .icon-share {
+      line-height: 25px;
+      width: 24px;
+      display: block;
+      float: right;
+      margin-left: 5px;
+      color: #fff;
+      @include theme {
+        background: nth($product_colours, $index);
+      }
+    }
+
+    .dropdown-toggle {
+      color: #fff;
+      @include theme {
+        background-color: nth($product_colours, $index);
+        border-color: nth($product_colours, $index);
+      }
+    }
+
+    &.dropdown {
+      height: 26px;
+      display: inline-block;
+
+      .dropdown-menu {
+        min-width: 200px;
+        max-height: 500px;
+        overflow-y: auto;
+        li {
+          a {
+            line-height: 1.2;
+          }
+
+          &.group-heading {
+            margin-top: 10px;
+            border-top: 1px solid #f5f5f5;
+
+            a,
+            span {
+              padding: 3px 10px;
+              display: block;
+              clear: both;
+              font-weight: bold;
+              pointer-events: none;
+              cursor: default;
+              color: $gray;
+            }
+            &:first-child {
+              margin-top: 0;
+              border: none;
+              margin-top: initial;
+            }
+          }
+
+          &.topic {
+            line-height: 1.2;
+            font-size: 14px;
+            &.selected {
+              a {
+                color: #fff;
+                &:hover {
+                  @include theme {
+                    background: nth($product_colours, $index);
+                  }
+                }
+              }
+              @include theme {
+                background: nth($product_colours, $index);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.showMore {
+  line-height: 30px;
+  background-color: dimgrey;
+  color: #fff;
+  text-align: center;
+
+  &:hover {
+    background-color: rgb(65, 65, 65);
+    cursor: pointer;
+  }
+}
+
+.entity-table {
+  width: 100%;
+
+  th,
+  td {
+    padding: 4px 5px;
+    border: none;
+    color: #5f6062;
+    font-size: 12px;
+  }
+
+  tr {
+    &.even {
+      background-color: $even-row-color;
+    }
+  }
+
+  thead {
+    tr {
+      border-bottom: 1px solid #5f6062;
+
+      &.primary-header {
+        th {
+          border-bottom: 1px solid #5f6062;
+        }
+      }
+
+      &.secondary-header {
+        th {
+          &.table-title {
+            @include theme {
+              color: nth($product_colours, $index);
+            }
+
+            font-size: 12px;
+            font-weight: normal;
+            padding-left: 8px;
+            vertical-align: middle;
+            height: 46px;
+            text-align: left;
+            line-height: normal;
+          }
+
+          &.start-year,
+          &.end-year,
+          &.change {
+            text-align: center;
+            vertical-align: middle;
+          }
+        }
+      }
+
+      &.table_header_true_pdf {
+        th {
+          font-size: 9px;
+        }
+      }
+
+      th {
+        line-height: normal;
+        vertical-align: bottom;
+        text-align: right;
+
+        &.subheading {
+          background-color: $even-color;
+          text-align: center;
+        }
+
+        &.xfirst {
+          text-align: left;
+        }
+
+        &.int,
+        &.decimal,
+        &.float,
+        &.money {
+          text-align: right;
+          width: 70px;
+          min-width: 70px;
+          max-width: 70px;
+          padding-right: 14px;
+        }
+
+        &.xeven,
+        &.start-year,
+        &.change,
+        &.changeXeven {
+          background-color: $even-color;
+          background-clip: padding-box;
+        }
+
+        &.change {
+          font-weight: normal;
+          text-align: center;
+          vertical-align: middle;
+        }
+
+        &.start-year,
+        &.end-year {
+          font-weight: normal;
+          font-size: 21px;
+          text-align: center;
+          vertical-align: middle;
+        }
+
+        &.table-title {
+          @include theme {
+            color: nth($product_colours, $index);
+          }
+
+          color: #bf1e2d;
+          font-size: 12px;
+          font-weight: 400;
+          padding-left: 8px;
+          text-align: left;
+          vertical-align: middle;
+          height: 46px;
+        }
+
+        &.table-area-name {
+          color: $color-economy;
+          font-size: 20px;
+          line-height: 36px;
+          font-weight: normal;
+          padding-left: 40px;
+          padding-right: 190px;
+          text-align: left;
+        }
+
+        &.sortable {
+          padding-right: 18px;
+          position: relative;
+          cursor: pointer;
+
+          &:before,
+          &:after {
+            border: 4px solid transparent;
+            content: "";
+            display: block;
+            height: 0;
+            right: 5px;
+            top: 75%;
+            position: absolute;
+            width: 0;
+          }
+
+          &:after {
+            border-bottom-color: #666;
+            margin-top: -9px;
+          }
+
+          &:before {
+            border-top-color: #666;
+            margin-top: 1px;
+          }
+
+          &.asc {
+            &:before {
+              opacity: 0.4;
+            }
+          }
+
+          &.desc {
+            &:after {
+              opacity: 0.4;
+            }
+          }
+        }
+
+        &.latest {
+          @include theme {
+            background-color: lighten(nth($product_colours, $index), 45);
+          }
+          position: relative;
+
+          &.cnew:after {
+            content: "new";
+            color: #fff;
+            padding: 2px 10px;
+            background-color: #01b700;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 12px;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      td {
+        &.int,
+        &.decimal,
+        &.float,
+        &.money {
+          text-align: right;
+          width: 70px;
+          min-width: 70px;
+          max-width: 70px;
+          padding-right: 14px;
+        }
+      }
+    }
+  }
+
+  tbody {
+    td {
+      &.int,
+      &.decimal,
+      &.float,
+      &.money {
+        text-align: right;
+        width: 70px;
+        min-width: 70px;
+        max-width: 70px;
+        padding-right: 14px;
+      }
+    }
+
+    tr {
+      th {
+        .changeXodd {
+          font-weight: normal;
+          text-align: right;
+        }
+      }
+
+      &.odd {
+        td {
+          &.xeven {
+            background-color: $even-color;
+
+            &.latest {
+              @include theme {
+                background-color: lighten(nth($product_colours, $index), 45);
+              }
+            }
+          }
+        }
+        &.idc-snapshot {
+          td {
+            background-color: silver;
+            &.xodd,
+            &.xeven {
+              background-color: silver;
+              &.latest {
+                @include theme {
+                  background-color: desaturate(
+                    lighten(nth($product_colours, $index), 20),
+                    20%
+                  );
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.even {
+        &.idc-snapshot {
+          td {
+            background-color: silver;
+            &.xodd,
+            &.xeven {
+              background-color: silver;
+              &.latest {
+                @include theme {
+                  background-color: desaturate(
+                    lighten(nth($product_colours, $index), 20),
+                    20%
+                  );
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.idc-indent {
+        td {
+          &.xfirst {
+            // &:before{
+            //     content:  "\2219 ";
+            //     size: 1em;
+            // }
+            padding-left: 40px;
+          }
+        }
+      }
+
+      &.child {
+        border-bottom: 1px solid #fff;
+
+        td:first-child {
+          display: list-item;
+          list-style-type: disc;
+          list-style-position: inside;
+          padding-left: 10px;
+        }
+
+        td,
+        th {
+          background-color: #e6f4ec !important;
+
+          &.latest {
+            @include theme {
+              background-color: darken(nth($product_colours, $index), 20);
+            }
+          }
+        }
+
+        &:hover {
+          td,
+          th {
+            background-color: $hover-color !important;
+          }
+        }
+      }
+
+      &:hover {
+        &.idc-snapshot {
+          td,
+          th {
+            background-color: $hover-color;
+            color: white;
+
+            &.xeven,
+            &.xodd {
+              background-color: $hover-color;
+
+              &.latest {
+                @include theme {
+                  background-color: desaturate(
+                    darken(nth($product_colours, $index), 5),
+                    30%
+                  );
+                }
+              }
+            }
+
+            &.latest {
+              @include theme {
+                background-color: desaturate(
+                  darken(nth($product_colours, $index), 5),
+                  30%
+                );
+              }
+            }
+          }
+        }
+        td,
+        th {
+          background-color: $hover-color;
+          color: white;
+
+          &.xeven {
+            background-color: $hover-color;
+
+            &.latest {
+              @include theme {
+                background-color: desaturate(
+                  darken(nth($product_colours, $index), 5),
+                  30%
+                );
+              }
+            }
+          }
+
+          &.latest {
+            @include theme {
+              background-color: desaturate(
+                darken(nth($product_colours, $index), 5),
+                30%
+              );
+            }
+          }
+        }
+      }
+
+      td {
+        border-right: dashed 1px #999;
+        line-height: 16px;
+        text-align: right;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &.xeven {
+          &.latest {
+            @include theme {
+              background-color: lighten(nth($product_colours, $index), 35);
+            }
+          }
+        }
+
+        &.changeXodd {
+          font-weight: normal;
+
+          text-align: right;
+        }
+
+        &.changeXeven {
+          font-weight: normal;
+          background-color: $even-color; /*F5F6F6*/
+        }
+
+        &.xfirst {
+          text-align: left;
+        }
+
+        &.xlast {
+          border-right: none;
+        }
+
+        div.crosslink-spacer {
+          float: left;
+          padding: 5px;
+          margin-left: 16px;
+        }
+
+        a.atlas {
+          background-color: $color-atlas-dark;
+          margin-right: 10px;
+
+          &:after {
+            content: "a";
+            color: #fff;
+            padding: 5px;
+          }
+        }
+
+        a.forecast {
+          background-color: $color-forecast;
+        }
+
+        a.economy {
+          background-color: $color-economy;
+        }
+      }
+    }
+
+    tr.idc-italic td {
+      font-style: italic;
+    }
+  }
+
+  tfoot {
+    tr {
+      td {
+        border-right: dashed 1px #999;
+        background-color: lightgray;
+        color: #222;
+        text-align: right;
+
+        &:first-child {
+          text-align: left;
+        }
+
+        &.latest {
+          @include theme {
+            background-color: rgba(
+              lighten(nth($product_colours, $index), 25),
+              0.8
+            );
+          }
+        }
+
+        &.xlast,
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  thead tr.table_header_true_pdf th {
+    font-size: 9px;
+  }
+}
+
+tr.child {
+  td {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,38 @@
+# Node.js with React
+# Build a Node.js project that uses React.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+pool:
+  name: Economy
+  demands: npm
+
+steps:
+- script: 'echo %Path%'
+  displayName: 'echo path'
+  enabled: false
+
+- task: Npm@1
+  displayName: 'Install Dependencies'
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'install --global typescript gatsby-cli'
+
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    workingDir: ecogatsby
+    verbose: false
+
+- script: 'gatsby build'
+  workingDirectory: ecogatsby
+  displayName: 'gatsby build'
+
+- task: MFelling.AWSS3Upload.custom-build-task.S3Upload@0
+  displayName: 'Upload file to S3 bucket'
+  inputs:
+    BucketName: roaring20s
+    File: '$(Build.Repository.LocalPath)/ecogatsby/public/'
+  enabled: false
+
