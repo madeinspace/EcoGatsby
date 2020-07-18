@@ -9,7 +9,7 @@
   "dependencies": {
     "bluebird": "^3.5.5",
     "knex": "^0.18.3",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "mssql": "4.1.0"
   }
 }
